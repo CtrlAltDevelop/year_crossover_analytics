@@ -11,12 +11,12 @@ def build():
     version     = project_dir / 'VERSION'
     icon_path   = project_dir / 'icon.ico'
     venv_site   = project_dir / '.venv' / 'Lib' / 'site-packages'
-    output_dir  = project_dir / '.dist'
-    spec_dir    = project_dir / 'build'
+    output_dir  = project_dir / 'build'
+    spec_dir    = project_dir / '.dist'
     hooks_dir   = project_dir / '.hooks'
 
     # execute file name with the version
-    exe_name = f"YearCrossoverAnalytics_v1.0.0"
+    exe_name = f"Zarif_YearCrossoverAnalytics_v1.0.0"
 
     # Verify required files
     for path in (main_script, version, icon_path):
@@ -24,8 +24,8 @@ def build():
             print(f"Missing: {path}")
             sys.exit(1)
 
-    output_dir.mkdir(exist_ok=True)
-    spec_dir.mkdir(exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    spec_dir.mkdir(parents=True, exist_ok=True)
 
     opts = [
         str(main_script),

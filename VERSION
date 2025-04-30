@@ -13,23 +13,22 @@ VSVersionInfo(
     fileType=0x1,                 # VFT_APP (Application)
     subtype=0x0,
     date=(0, 0)
-    ),
+  ),
   kids=[
     StringFileInfo(
       [
       StringTable(
         '040904b0',               # Language and code page (1033 is US English)
         [
-        StringStruct["CompanyName",      "Zarif Alpha Group"]
-        StringStruct["FileDescription",  "Year Crossover Analytics"]
-        StringStruct["FileVersion",      "1.0.0"]
-        StringStruct["InternalName",     "YearCrossoverAnalytics"]
-        StringStruct["LegalCopyright",   "© Zarif Alpha Group 2025"]
-        StringStruct["OriginalFilename", "YearCrossoverAnalytics.exe"]
-        StringStruct["ProductName",      "Year Crossover Analytics"]
-        StringStruct["ProductVersion",   "1.0.0"]
-        ]
-      )
+          StringStruct("CompanyName", "Zarif Alpha Group"),
+          StringStruct("FileDescription", "Year Crossover Analytics"),
+          StringStruct("FileVersion", "1.0.0"),
+          StringStruct("InternalName", "Zarif-YearCrossoverAnalytics"),
+          StringStruct("LegalCopyright", "© Zarif Alpha Group 2025"),
+          StringStruct("OriginalFilename", "Zarif-YearCrossoverAnalytics.exe"),
+          StringStruct("ProductName", "Year-Crossover-Analytics"),
+          StringStruct("ProductVersion", "1.0.0")
+        ])
       ]
     ),
     VarFileInfo([VarStruct('Translation', [1033, 1200])])
