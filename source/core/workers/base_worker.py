@@ -16,7 +16,7 @@ class BaseWorker(QRunnable):
             self.signals.log.emit(f"🖥️ MAC: {self.settings.mac}")
 
             analyzer = Analyzer(self.signals, self.settings.base_path, self.settings.result_path)
-            analyzer.process(self.settings.pass_number, self.settings.report_path, self.settings.connect_path)
+            analyzer.process(self.settings.report_path, self.settings.connect_path)
 
             self.signals.log.emit("✅ Analysis completed.")
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowyWlyxh.ui'
+## Form generated from reading UI file 'main_windowPNCJFg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.2
 ##
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModality.NonModal)
-        MainWindow.resize(611, 374)
+        MainWindow.resize(611, 300)
         MainWindow.setMinimumSize(QSize(600, 300))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"/* Main Window */\n"
@@ -262,12 +262,12 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.lineEdit_4.setReadOnly(True)
 
-        self.gridLayout.addWidget(self.lineEdit_4, 4, 3, 1, 3)
+        self.gridLayout.addWidget(self.lineEdit_4, 3, 3, 1, 3)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.label_3, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 1, 2, 1, 1)
 
         self.pushButton_8 = QPushButton(self.groupBox)
         self.pushButton_8.setObjectName(u"pushButton_8")
@@ -292,30 +292,30 @@ class Ui_MainWindow(object):
 "    border: 1px solid #ff7474;\n"
 "}")
 
-        self.gridLayout.addWidget(self.pushButton_8, 2, 4, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_8, 1, 4, 1, 1)
 
         self.label_5 = QLabel(self.groupBox)
         self.label_5.setObjectName(u"label_5")
 
-        self.gridLayout.addWidget(self.label_5, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.label_5, 3, 2, 1, 1)
 
         self.pushButton_3 = QPushButton(self.groupBox)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.gridLayout.addWidget(self.pushButton_3, 2, 6, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_3, 1, 6, 1, 1)
 
         self.line = QFrame(self.groupBox)
         self.line.setObjectName(u"line")
         self.line.setFrameShape(QFrame.Shape.HLine)
         self.line.setFrameShadow(QFrame.Shadow.Sunken)
 
-        self.gridLayout.addWidget(self.line, 3, 2, 1, 5)
+        self.gridLayout.addWidget(self.line, 2, 2, 1, 5)
 
         self.label = QLabel(self.groupBox)
         self.label.setObjectName(u"label")
 
-        self.gridLayout.addWidget(self.label, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 2, 1, 1)
 
         self.lineEdit = QLineEdit(self.groupBox)
         self.lineEdit.setObjectName(u"lineEdit")
@@ -324,7 +324,7 @@ class Ui_MainWindow(object):
         self.lineEdit.setReadOnly(True)
         self.lineEdit.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.lineEdit, 1, 3, 1, 3)
+        self.gridLayout.addWidget(self.lineEdit, 0, 3, 1, 3)
 
         self.pushButton_2 = QPushButton(self.groupBox)
         self.pushButton_2.setObjectName(u"pushButton_2")
@@ -337,7 +337,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setMaximumSize(QSize(90, 16777215))
         self.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.gridLayout.addWidget(self.pushButton_2, 1, 6, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_2, 0, 6, 1, 1)
 
         self.lineEdit_2 = QLineEdit(self.groupBox)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
@@ -345,24 +345,13 @@ class Ui_MainWindow(object):
         self.lineEdit_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.lineEdit_2.setReadOnly(True)
 
-        self.gridLayout.addWidget(self.lineEdit_2, 2, 3, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_2, 1, 3, 1, 1)
 
         self.pushButton_7 = QPushButton(self.groupBox)
         self.pushButton_7.setObjectName(u"pushButton_7")
         self.pushButton_7.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.gridLayout.addWidget(self.pushButton_7, 4, 6, 1, 1)
-
-        self.label_4 = QLabel(self.groupBox)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout.addWidget(self.label_4, 0, 2, 1, 1)
-
-        self.lineEdit_5 = QLineEdit(self.groupBox)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-
-        self.gridLayout.addWidget(self.lineEdit_5, 0, 3, 1, 4)
+        self.gridLayout.addWidget(self.pushButton_7, 3, 6, 1, 1)
 
 
         self.verticalLayout.addWidget(self.groupBox)
@@ -520,7 +509,6 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
         self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select an Deal Connect file", None))
         self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Optimization Pass", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Analyze", None))
         self.textEdit.setMarkdown("")
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

@@ -103,13 +103,8 @@ class MainWindow(QMainWindow):
     def start_analysis(self):
         settings = Settings()
         settings.base_path = self.base_path
-        settings.result_path = self._get_result_path()
         settings.mac = self._get_mac_address()
-        settings.pass_number = self.ui.lineEdit_5.text().strip()
-
-        if not settings.pass_number.isdigit():
-            QMessageBox.warning(self, "Input Error", "Optimization pass must be a number.")
-            return
+        settings.result_path = Path(self._get_result_path())
 
         report_path = self.ui.lineEdit.text().strip()
         if not report_path:

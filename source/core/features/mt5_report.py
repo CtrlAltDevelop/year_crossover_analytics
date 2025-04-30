@@ -12,6 +12,8 @@ from openpyxl.reader.excel import load_workbook
 from openpyxl.styles import PatternFill, Border, Alignment, Font
 from pandas.core.tools import datetimes
 
+from source.core.common.report_class import ReportClass
+
 
 class TimeFrame(Enum):
     M1 = 1  # 1 minute
@@ -37,7 +39,7 @@ class TimeFrame(Enum):
     MN1 = 49153  # 1 month
 
 
-class Mt5Report:
+class Mt5Report(ReportClass):
     contract_size = 0
     sessions = []
     valid_types = {'buy': ['buy', 'buy limit'], 'sell': ['sell', 'sell limit']}
