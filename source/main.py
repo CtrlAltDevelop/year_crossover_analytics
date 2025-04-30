@@ -1,10 +1,16 @@
-import pathlib
 import sys
+import pathlib
+import warnings
+
 from PySide6.QtWidgets import QApplication
+
 from source.ui.controllers.main_window import MainWindow
 from source.config import parse_args
 
+
 def main(root: pathlib.Path):
+    warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
+
     args = parse_args()
 
     app = QApplication(sys.argv)
