@@ -1,13 +1,19 @@
-
+import pathlib
 import sys
-from pathlib import Path
+from PySide6.QtWidgets import QApplication
+from source.ui.controllers.main_window import MainWindow
+from source.config import parse_args
 
-from PySide6 import QtWidgets
-from .ui.controllers.main_window import MainWindow
+def main(root: pathlib.Path):
+    args = parse_args()
 
+    app = QApplication(sys.argv)
+    app.setApplicationName("Year Crossover Analytics")
 
-def main(root: Path):
-    app = QtWidgets.QApplication(sys.argv)
+    if args.debug:
+        print("🛠 Debug mode enabled")
+        print(f"🧵 Max threads: {args.max_threads}")
+
     window = MainWindow(root)
     window.show()
     sys.exit(app.exec())
