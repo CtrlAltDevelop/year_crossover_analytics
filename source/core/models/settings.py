@@ -8,4 +8,4 @@ class Settings(object):
     base_path: Path
     result_path: Path
     report_path: Path
-    connect_path: Optional[Path]
+    connect_path: Optional[Path] = None

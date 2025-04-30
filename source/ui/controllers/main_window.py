@@ -16,7 +16,8 @@ class MainWindow(QMainWindow):
     def __init__(self, base_path: Path):
         super().__init__()
         self.base_path = base_path
-        self.results = base_path / 'results'
+        self.result_path = base_path / 'results'
+        self.result_path.mkdir(parents=True, exist_ok=True)
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -57,7 +58,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_5.clicked.connect(lambda: os.startfile(self._get_result_path()))
         self.ui.pushButton_6.clicked.connect(self._reset_ui)
         self.ui.pushButton_7.clicked.connect(self._load_folder)
-        self.ui.lineEdit_4.setText(str(self.results))
+        self.ui.lineEdit_4.setText(str(self.result_path))
         self.ui.textEdit.textChanged.connect(self.scroll_to_bottom)
 
     def scroll_to_bottom(self):
@@ -80,7 +81,7 @@ class MainWindow(QMainWindow):
     def _get_result_path(self):
         folder_path = self.ui.lineEdit_4.text().strip()
         if not folder_path:
-            folder_path = str(self.base_path / 'results')
+            return self.result_path
         return folder_path
 
     def _reset_ui(self):
@@ -104,25 +105,29 @@ class MainWindow(QMainWindow):
         settings.base_path = self.base_path
         settings.result_path = self._get_result_path()
         settings.mac = self._get_mac_address()
-
         settings.pass_number = self.ui.lineEdit_5.text().strip()
-        settings.report_path = self.ui.lineEdit.text().strip()
-        settings.connect_path = self.ui.lineEdit_2.text().strip()
 
         if not settings.pass_number.isdigit():
             QMessageBox.warning(self, "Input Error", "Optimization pass must be a number.")
             return
 
-        if not settings.report_path:
+        report_path = self.ui.lineEdit.text().strip()
+        if not report_path:
             QMessageBox.warning(self, "Input Error", "Please select a report file.")
             return
+        settings.report_path = Path(report_path)
+
+        connect_path = self.ui.lineEdit_2.text().strip()
+        if connect_path:
+            settings.connect_path = Path(connect_path)
 
         self.ui.textEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(1)
 
         worker = BaseWorker(settings)
         worker.signals.log.connect(self.ui.textEdit.append)
-        worker.signals.phase_progress.connect(self.ui.progressBar.setValue)
-        worker.signals.inner_progress.connect(self._set_value_to_progress)
+        worker.signals.progress.connect(self.ui.progressBar.setValue)
+        worker.signals.sub_progress.connect(self._set_value_to_progress)
+        worker.signals.sub_format.connect(lambda value : self.ui.progressBar_2.setFormat(str(value)))
         worker.signals.finished.connect(self._analysis_done)
         self.pool.start(worker)
