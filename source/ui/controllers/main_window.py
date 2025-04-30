@@ -6,9 +6,10 @@ from pathlib import Path
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 from PySide6.QtCore import QThreadPool
-from ..views.ui_main_window import Ui_MainWindow
-from ...core.mac_validator import VALID_MAC_LIST
-from ...workers.base_worker import BaseWorker
+from source.ui.views.ui_main_window import Ui_MainWindow
+from source.core.features.mac_validator import VALID_MAC_LIST
+from source.core.workers.base_worker import BaseWorker
+from source.core.models.settings import Settings
 
 
 class MainWindow(QMainWindow):
@@ -53,7 +54,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton.clicked.connect(self.start_analysis)
         self.ui.pushButton_2.clicked.connect(self._load_file(self.ui.lineEdit, "Excel Files (*.xlsx *.xls)"))
         self.ui.pushButton_3.clicked.connect(self._load_file(self.ui.lineEdit_2, "CSV Files (*.csv)"))
-        self.ui.pushButton_5.clicked.connect(self._open_results_folder)
+        self.ui.pushButton_5.clicked.connect(lambda: os.startfile(self._get_result_path()))
         self.ui.pushButton_6.clicked.connect(self._reset_ui)
         self.ui.pushButton_7.clicked.connect(self._load_folder)
         self.ui.lineEdit_4.setText(str(self.results))
@@ -76,11 +77,11 @@ class MainWindow(QMainWindow):
         if folder:
             self.ui.lineEdit_4.setText(folder)
 
-    def _open_results_folder(self):
+    def _get_result_path(self):
         folder_path = self.ui.lineEdit_4.text().strip()
         if not folder_path:
             folder_path = str(self.base_path / 'results')
-        os.startfile(folder_path)
+        return folder_path
 
     def _reset_ui(self):
         self.ui.textEdit.clear()
@@ -99,21 +100,26 @@ class MainWindow(QMainWindow):
         self.ui.progressBar_2.setVisible(False)
 
     def start_analysis(self):
-        pass_number = self.ui.lineEdit_5.text().strip()
-        report = self.ui.lineEdit.text().strip()
-        connect = self.ui.lineEdit_2.text().strip()
-        if not pass_number.isdigit():
+        settings = Settings()
+        settings.base_path = self.base_path
+        settings.result_path = self._get_result_path()
+        settings.mac = self._get_mac_address()
+
+        settings.pass_number = self.ui.lineEdit_5.text().strip()
+        settings.report_path = self.ui.lineEdit.text().strip()
+        settings.connect_path = self.ui.lineEdit_2.text().strip()
+
+        if not settings.pass_number.isdigit():
             QMessageBox.warning(self, "Input Error", "Optimization pass must be a number.")
             return
 
-        if not report:
+        if not settings.report_path:
             QMessageBox.warning(self, "Input Error", "Please select a report file.")
             return
 
         self.ui.textEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(1)
 
-        settings = {'mac': self._get_mac_address(), 'pass_number': pass_number, 'report': report, 'connect': connect}
         worker = BaseWorker(settings)
         worker.signals.log.connect(self.ui.textEdit.append)
         worker.signals.phase_progress.connect(self.ui.progressBar.setValue)
