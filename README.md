@@ -1,7 +1,7 @@
-_# Year Crossover Analytics
+# Year Crossover Analytics
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.1.0-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Python-blue)
 
 ## Overview
@@ -16,7 +16,6 @@ _# Year Crossover Analytics
 - 📅 Flag trades where close date occurs *before* January 1st of the new year
 - 📁 Load two CSV-based MT5 reports and merge/analyze
 - 🧠 Generate statistics (e.g. flagged trade count, total profit)
-- 🪄 Visual dual-progress feedback via PySide6 UI
 - ✅ Export problematic trades to CSV
 
 ---
