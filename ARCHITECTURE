@@ -1,7 +1,8 @@
 ├── .venv/
+├── .dist/
+├── .hooks/
 ├── build/
-├── dist/
-├── source/                         
+├── source/
 │   ├── __init__.py
 │   ├── main.py
 │   ├── config.py
