@@ -53,7 +53,6 @@ class MainWindow(QMainWindow):
         self.ui.pushButton.clicked.connect(self.start_analysis)
         self.ui.pushButton_2.clicked.connect(self._load_file(self.ui.lineEdit, "Excel Files (*.xlsx *.xls)"))
         self.ui.pushButton_3.clicked.connect(self._load_file(self.ui.lineEdit_2, "CSV Files (*.csv)"))
-        self.ui.pushButton_4.clicked.connect(self._load_file(self.ui.lineEdit_3, "CSV Files (*.csv)"))
         self.ui.pushButton_5.clicked.connect(self._open_results_folder)
         self.ui.pushButton_6.clicked.connect(self._reset_ui)
         self.ui.pushButton_7.clicked.connect(self._load_folder)
@@ -102,7 +101,7 @@ class MainWindow(QMainWindow):
     def start_analysis(self):
         pass_number = self.ui.lineEdit_5.text().strip()
         report = self.ui.lineEdit.text().strip()
-
+        connect = self.ui.lineEdit_2.text().strip()
         if not pass_number.isdigit():
             QMessageBox.warning(self, "Input Error", "Optimization pass must be a number.")
             return
@@ -114,7 +113,7 @@ class MainWindow(QMainWindow):
         self.ui.textEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(1)
 
-        settings = {'pass_number': pass_number, 'report': report}
+        settings = {'mac': self._get_mac_address(), 'pass_number': pass_number, 'report': report, 'connect': connect}
         worker = BaseWorker(settings)
         worker.signals.log.connect(self.ui.textEdit.append)
         worker.signals.phase_progress.connect(self.ui.progressBar.setValue)

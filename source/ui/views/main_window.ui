@@ -9,14 +9,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>450</height>
+    <width>611</width>
+    <height>374</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>700</width>
-    <height>450</height>
+    <width>600</width>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -273,7 +273,7 @@ QCheckBox:focus {
        <number>0</number>
       </property>
       <widget class="QWidget" name="page">
-       <layout class="QVBoxLayout" name="verticalLayout" stretch="0,5,0,1">
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="5,0,1">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -290,122 +290,84 @@ QCheckBox:focus {
          <number>10</number>
         </property>
         <item>
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="groupBox">
           <property name="title">
-           <string>Analyze Settings</string>
+           <string/>
           </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item row="1" column="4">
-            <widget class="QCheckBox" name="checkBox">
-             <property name="styleSheet">
-              <string notr="true"/>
+          <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
+           <item row="4" column="3" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_4">
+             <property name="focusPolicy">
+              <enum>Qt::FocusPolicy::NoFocus</enum>
              </property>
-             <property name="text">
-              <string>Create Build Features file</string>
-             </property>
-             <property name="checkable">
+             <property name="readOnly">
               <bool>true</bool>
              </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <property name="tristate">
-              <bool>false</bool>
+             <property name="placeholderText">
+              <string>Select a Path to Store Results</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_5">
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::StrongFocus</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="label_6">
+           <item row="2" column="2">
+            <widget class="QLabel" name="label_3">
              <property name="text">
-              <string>Risk Amount</string>
+              <string>Deal Connect (Optional)</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" colspan="3">
-            <widget class="QComboBox" name="comboBox">
+           <item row="2" column="4">
+            <widget class="QPushButton" name="pushButton_8">
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">QPushButton {
+    background-color: #ff7070;
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    border-radius: 6px;
+}
+
+QPushButton:hover {
+    background-color: #c40808;
+}
+
+QPushButton:pressed {
+    background-color: #9f0606;
+}
+
+QPushButton:focus {
+    border: 1px solid #ff7474;
+}</string>
              </property>
-             <item>
-              <property name="text">
-               <string>Calculation based on Commission Database</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Read from the ReportTester file</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_7">
              <property name="text">
-              <string>Commission Method</string>
+              <string>Clear</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_5">
              <property name="text">
-              <string>Optimization Pass</string>
+              <string>Result Path (Optional)</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="4">
-            <widget class="QLineEdit" name="lineEdit_6">
+           <item row="2" column="6">
+            <widget class="QPushButton" name="pushButton_3">
              <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::StrongFocus</enum>
+              <enum>Qt::FocusPolicy::NoFocus</enum>
              </property>
-             <property name="cursorMoveStyle">
-              <enum>Qt::CursorMoveStyle::VisualMoveStyle</enum>
+             <property name="text">
+              <string>Browse</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
-            <spacer name="horizontalSpacer_3">
+           <item row="3" column="2" colspan="5">
+            <widget class="Line" name="line">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Maximum</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
+            </widget>
            </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>Reports file</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0">
            <item row="1" column="2">
             <widget class="QLabel" name="label">
              <property name="text">
@@ -438,112 +400,6 @@ QCheckBox:focus {
              </property>
             </widget>
            </item>
-           <item row="5" column="2">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Result Path (Optional)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="3" colspan="3">
-            <widget class="QLineEdit" name="lineEdit_4">
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="placeholderText">
-              <string>Select a Path to Store Results</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="6">
-            <widget class="QPushButton" name="pushButton_4">
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="text">
-              <string>Browse</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="3">
-            <widget class="QLineEdit" name="lineEdit_3">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="frame">
-              <bool>true</bool>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="placeholderText">
-              <string>Select an Margin Data file</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
-            <widget class="QLineEdit" name="lineEdit_2">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="placeholderText">
-              <string>Select an Deal Connect file</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="6">
-            <widget class="QPushButton" name="pushButton_7">
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="text">
-              <string>Browse</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Deal Connect (Optional)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Margin Data (Optional)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="6">
-            <widget class="QPushButton" name="pushButton_3">
-             <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
-             </property>
-             <property name="text">
-              <string>Browse</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2" colspan="5">
-            <widget class="Line" name="line">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="6">
             <widget class="QPushButton" name="pushButton_2">
              <property name="sizePolicy">
@@ -572,61 +428,43 @@ QCheckBox:focus {
              </property>
             </widget>
            </item>
-           <item row="3" column="4">
-            <widget class="QPushButton" name="pushButton_9">
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: #ff7070;
-    color: #ffffff;
-    border: none;
-    font-size: 14px;
-    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
-    border-radius: 6px;
-}
-
-QPushButton:hover {
-    background-color: #c40808;
-}
-
-QPushButton:pressed {
-    background-color: #9f0606;
-}
-
-QPushButton:focus {
-    border: 1px solid #ff7474;
-}</string>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="lineEdit_2">
+             <property name="enabled">
+              <bool>true</bool>
              </property>
-             <property name="text">
-              <string>Clear</string>
+             <property name="focusPolicy">
+              <enum>Qt::FocusPolicy::NoFocus</enum>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Select an Deal Connect file</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="4">
-            <widget class="QPushButton" name="pushButton_8">
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: #ff7070;
-    color: #ffffff;
-    border: none;
-    font-size: 14px;
-    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
-    border-radius: 6px;
-}
-
-QPushButton:hover {
-    background-color: #c40808;
-}
-
-QPushButton:pressed {
-    background-color: #9f0606;
-}
-
-QPushButton:focus {
-    border: 1px solid #ff7474;
-}</string>
+           <item row="4" column="6">
+            <widget class="QPushButton" name="pushButton_7">
+             <property name="focusPolicy">
+              <enum>Qt::FocusPolicy::NoFocus</enum>
              </property>
              <property name="text">
-              <string>Clear</string>
+              <string>Browse</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Optimization Pass</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3" colspan="4">
+            <widget class="QLineEdit" name="lineEdit_5">
+             <property name="focusPolicy">
+              <enum>Qt::FocusPolicy::StrongFocus</enum>
              </property>
             </widget>
            </item>
@@ -889,22 +727,6 @@ QPushButton:hover {
     <hint type="destinationlabel">
      <x>339</x>
      <y>216</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_9</sender>
-   <signal>clicked()</signal>
-   <receiver>lineEdit_3</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>540</x>
-     <y>265</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>339</x>
-     <y>265</y>
     </hint>
    </hints>
   </connection>

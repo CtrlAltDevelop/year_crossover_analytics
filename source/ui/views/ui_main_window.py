@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowIEGyib.ui'
+## Form generated from reading UI file 'main_windowyWlyxh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.2
 ##
@@ -15,19 +15,19 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QProgressBar,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTextEdit, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QFrame, QGridLayout,
+    QGroupBox, QHBoxLayout, QLabel, QLineEdit,
+    QMainWindow, QProgressBar, QPushButton, QSizePolicy,
+    QSpacerItem, QStackedWidget, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModality.NonModal)
-        MainWindow.resize(700, 450)
-        MainWindow.setMinimumSize(QSize(700, 450))
+        MainWindow.resize(611, 374)
+        MainWindow.setMinimumSize(QSize(600, 300))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"/* Main Window */\n"
 "QMainWindow {\n"
@@ -253,182 +253,21 @@ class Ui_MainWindow(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(10, 0, 10, 10)
-        self.groupBox_2 = QGroupBox(self.page)
-        self.groupBox_2.setObjectName(u"groupBox_2")
-        self.gridLayout_2 = QGridLayout(self.groupBox_2)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.checkBox = QCheckBox(self.groupBox_2)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setStyleSheet(u"")
-        self.checkBox.setCheckable(True)
-        self.checkBox.setChecked(False)
-        self.checkBox.setTristate(False)
-
-        self.gridLayout_2.addWidget(self.checkBox, 1, 4, 1, 1)
-
-        self.lineEdit_5 = QLineEdit(self.groupBox_2)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-
-        self.gridLayout_2.addWidget(self.lineEdit_5, 0, 1, 1, 1)
-
-        self.label_6 = QLabel(self.groupBox_2)
-        self.label_6.setObjectName(u"label_6")
-
-        self.gridLayout_2.addWidget(self.label_6, 0, 3, 1, 1)
-
-        self.comboBox = QComboBox(self.groupBox_2)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setStyleSheet(u"")
-
-        self.gridLayout_2.addWidget(self.comboBox, 1, 1, 1, 3)
-
-        self.label_7 = QLabel(self.groupBox_2)
-        self.label_7.setObjectName(u"label_7")
-
-        self.gridLayout_2.addWidget(self.label_7, 1, 0, 1, 1)
-
-        self.label_4 = QLabel(self.groupBox_2)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout_2.addWidget(self.label_4, 0, 0, 1, 1)
-
-        self.lineEdit_6 = QLineEdit(self.groupBox_2)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
-        self.lineEdit_6.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-        self.lineEdit_6.setCursorMoveStyle(Qt.CursorMoveStyle.VisualMoveStyle)
-
-        self.gridLayout_2.addWidget(self.lineEdit_6, 0, 4, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(20, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_3, 0, 2, 1, 1)
-
-
-        self.verticalLayout.addWidget(self.groupBox_2)
-
         self.groupBox = QGroupBox(self.page)
         self.groupBox.setObjectName(u"groupBox")
         self.gridLayout = QGridLayout(self.groupBox)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout.addWidget(self.label, 1, 2, 1, 1)
-
-        self.lineEdit = QLineEdit(self.groupBox)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setEnabled(True)
-        self.lineEdit.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.lineEdit.setReadOnly(True)
-        self.lineEdit.setClearButtonEnabled(False)
-
-        self.gridLayout.addWidget(self.lineEdit, 1, 3, 1, 3)
-
-        self.label_5 = QLabel(self.groupBox)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout.addWidget(self.label_5, 5, 2, 1, 1)
-
         self.lineEdit_4 = QLineEdit(self.groupBox)
         self.lineEdit_4.setObjectName(u"lineEdit_4")
         self.lineEdit_4.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.lineEdit_4.setReadOnly(True)
 
-        self.gridLayout.addWidget(self.lineEdit_4, 5, 3, 1, 3)
-
-        self.pushButton_4 = QPushButton(self.groupBox)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-
-        self.gridLayout.addWidget(self.pushButton_4, 3, 6, 1, 1)
-
-        self.lineEdit_3 = QLineEdit(self.groupBox)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setEnabled(True)
-        self.lineEdit_3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.lineEdit_3.setFrame(True)
-        self.lineEdit_3.setReadOnly(True)
-
-        self.gridLayout.addWidget(self.lineEdit_3, 3, 3, 1, 1)
-
-        self.lineEdit_2 = QLineEdit(self.groupBox)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setEnabled(True)
-        self.lineEdit_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.lineEdit_2.setReadOnly(True)
-
-        self.gridLayout.addWidget(self.lineEdit_2, 2, 3, 1, 1)
-
-        self.pushButton_7 = QPushButton(self.groupBox)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-        self.pushButton_7.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-
-        self.gridLayout.addWidget(self.pushButton_7, 5, 6, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_4, 4, 3, 1, 3)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
 
         self.gridLayout.addWidget(self.label_3, 2, 2, 1, 1)
-
-        self.label_2 = QLabel(self.groupBox)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 3, 2, 1, 1)
-
-        self.pushButton_3 = QPushButton(self.groupBox)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-
-        self.gridLayout.addWidget(self.pushButton_3, 2, 6, 1, 1)
-
-        self.line = QFrame(self.groupBox)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShape(QFrame.Shape.HLine)
-        self.line.setFrameShadow(QFrame.Shadow.Sunken)
-
-        self.gridLayout.addWidget(self.line, 4, 2, 1, 5)
-
-        self.pushButton_2 = QPushButton(self.groupBox)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy)
-        self.pushButton_2.setMinimumSize(QSize(90, 0))
-        self.pushButton_2.setMaximumSize(QSize(90, 16777215))
-        self.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-
-        self.gridLayout.addWidget(self.pushButton_2, 1, 6, 1, 1)
-
-        self.pushButton_9 = QPushButton(self.groupBox)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-        self.pushButton_9.setStyleSheet(u"QPushButton {\n"
-"    background-color: #ff7070;\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
-"    font-size: 14px;\n"
-"    font-family: \"Segoe UI\", Arial, sans-serif;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #c40808;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #9f0606;\n"
-"}\n"
-"\n"
-"QPushButton:focus {\n"
-"    border: 1px solid #ff7474;\n"
-"}")
-
-        self.gridLayout.addWidget(self.pushButton_9, 3, 4, 1, 1)
 
         self.pushButton_8 = QPushButton(self.groupBox)
         self.pushButton_8.setObjectName(u"pushButton_8")
@@ -454,6 +293,76 @@ class Ui_MainWindow(object):
 "}")
 
         self.gridLayout.addWidget(self.pushButton_8, 2, 4, 1, 1)
+
+        self.label_5 = QLabel(self.groupBox)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout.addWidget(self.label_5, 4, 2, 1, 1)
+
+        self.pushButton_3 = QPushButton(self.groupBox)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
+        self.gridLayout.addWidget(self.pushButton_3, 2, 6, 1, 1)
+
+        self.line = QFrame(self.groupBox)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.HLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.gridLayout.addWidget(self.line, 3, 2, 1, 5)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 1, 2, 1, 1)
+
+        self.lineEdit = QLineEdit(self.groupBox)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setEnabled(True)
+        self.lineEdit.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.lineEdit.setReadOnly(True)
+        self.lineEdit.setClearButtonEnabled(False)
+
+        self.gridLayout.addWidget(self.lineEdit, 1, 3, 1, 3)
+
+        self.pushButton_2 = QPushButton(self.groupBox)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
+        self.pushButton_2.setSizePolicy(sizePolicy)
+        self.pushButton_2.setMinimumSize(QSize(90, 0))
+        self.pushButton_2.setMaximumSize(QSize(90, 16777215))
+        self.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
+        self.gridLayout.addWidget(self.pushButton_2, 1, 6, 1, 1)
+
+        self.lineEdit_2 = QLineEdit(self.groupBox)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setEnabled(True)
+        self.lineEdit_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.lineEdit_2.setReadOnly(True)
+
+        self.gridLayout.addWidget(self.lineEdit_2, 2, 3, 1, 1)
+
+        self.pushButton_7 = QPushButton(self.groupBox)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
+        self.gridLayout.addWidget(self.pushButton_7, 4, 6, 1, 1)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout.addWidget(self.label_4, 0, 2, 1, 1)
+
+        self.lineEdit_5 = QLineEdit(self.groupBox)
+        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.lineEdit_5.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+
+        self.gridLayout.addWidget(self.lineEdit_5, 0, 3, 1, 4)
 
 
         self.verticalLayout.addWidget(self.groupBox)
@@ -500,8 +409,8 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
-        self.verticalLayout.setStretch(1, 5)
-        self.verticalLayout.setStretch(3, 1)
+        self.verticalLayout.setStretch(0, 5)
+        self.verticalLayout.setStretch(2, 1)
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -589,7 +498,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.pushButton_8.clicked.connect(self.lineEdit_2.clear)
-        self.pushButton_9.clicked.connect(self.lineEdit_3.clear)
 
         self.stackedWidget.setCurrentIndex(0)
 
@@ -599,31 +507,20 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MQL5 Trade Analyzer", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Analyze Settings", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Create Build Features file", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Risk Amount", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Calculation based on Commission Database", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Read from the ReportTester file", None))
-
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Commission Method", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Optimization Pass", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Reports file", None))
+        self.groupBox.setTitle("")
+        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select a Path to Store Results", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Deal Connect (Optional)", None))
+        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Result Path (Optional)", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Meta Report", None))
         self.lineEdit.setInputMask("")
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select an Report file to analyze", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Result Path (Optional)", None))
-        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select a Path to Store Results", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select an Margin Data file", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
         self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select an Deal Connect file", None))
         self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Deal Connect (Optional)", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Margin Data (Optional)", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
-        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Optimization Pass", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Analyze", None))
         self.textEdit.setMarkdown("")
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

@@ -21,13 +21,13 @@ class BaseWorker(QRunnable):
             mac = self.settings['mac']
             pass_number = self.settings['pass_number']
             report = self.settings['report']
-            connect_path = self.settings['connect_path']
+            connect = self.settings['connect']
 
             self.signals.log.emit("🚀 Starting analysis...")
             self.signals.log.emit(f"🖥️ MAC: {mac}")
             self.signals.log.emit(f"📑 Using report: {report}")
-            if connect_path:
-                self.signals.log.emit(f"📃 Using connect: {connect_path}")
+            if connect:
+                self.signals.log.emit(f"📃 Using connect: {connect}")
 
             for phase, inner, msg in Analyzer(pass_number, report).process():
                 if phase:
