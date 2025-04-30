@@ -1,0 +1,32 @@
+├── .venv/
+├── build/
+├── dist/
+├── source/                         
+│   ├── __init__.py
+│   ├── main.py
+│   ├── config.py
+│   ├── resources/          
+│   │   ├── icons/          
+│   │   └── styles.qss      
+│   ├── ui/                 
+│   │   ├── __init__.py
+│   │   ├── views/          
+│   │   │   └── main_window.ui
+│   │   └── controllers/    
+│   │       └── main_window.py
+│   ├── core/               
+│   │   ├── __init__.py
+│   │   └── analyzer.py     
+│   └── workers/            
+│       ├── __init__.py
+│       ├── base_worker.py  
+│       └── file_worker.py
+├── run.py
+├── setup.py
+├── VERSION
+├── ARCHITECTURE
+├── LICENSE
+├── icon.ico
+├── pyproject.toml
+├── setup.cfg
+└── README.md
