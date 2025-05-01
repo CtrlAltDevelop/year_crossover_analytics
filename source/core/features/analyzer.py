@@ -47,8 +47,7 @@ class Analyzer:
         yield 4 / total_steps * 100
 
         self.signals.log.emit('☑️ Store Results in file')
-        if len(result) != 0:
-            self._save_to_excel(result, symbol)
+        self._save_to_excel(result, symbol, details['tf'])
         yield 5 / total_steps * 100
 
     def _load_excel_data(self, symbol: str) -> dict:
@@ -99,10 +98,10 @@ class Analyzer:
 
         return flagged
 
-    def _save_to_excel(self, result: pd.DataFrame, symbol: str):
+    def _save_to_excel(self, result: pd.DataFrame, symbol: str, timeframe: str):
         for col in ['OpenTime', 'CloseTime', 'YearBoundary']:
             if col in result.columns:
                 result[col] = pd.to_datetime(result[col], errors='coerce').dt.strftime('%Y.%m.%d %H:%M:%S')
-        output_path = self.result_path / f"{symbol}_CrossYear_{len(result)}Records_{int(time.time())}.csv"
+        output_path = self.result_path / f"{symbol}_{timeframe}_CrossYear_{len(result)}Records_{int(time.time())}.csv"
         result.to_csv(output_path, index=False)
         self.signals.log.emit(f"📁 Result saved to: {output_path}")

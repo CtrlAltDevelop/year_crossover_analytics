@@ -1,7 +1,8 @@
 from PySide6.QtCore import QRunnable, Slot
 from source.core.models.worker_signals import WorkerSignals
-from source.core.analyzer import Analyzer
-from source.core.models.settings import Settings  # Assumes you have this
+from source.core.features.analyzer import Analyzer
+from source.core.models.settings import Settings
+
 
 class BaseWorker(QRunnable):
     def __init__(self, settings: Settings):
