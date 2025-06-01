@@ -124,6 +124,9 @@ VALID_MAC_LIST = [
     # Local Server
     '98:F2:B3:26:25:00',
 
+    # Mr. Foroghi
+    '98:FC:11:EC:02:B2',
+
     # Mr. Zarif
     'B4:2E:99:54:4C:A3',
 ]
