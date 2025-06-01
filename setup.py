@@ -16,7 +16,7 @@ def build():
     hooks_dir   = project_dir / '.hooks'
 
     # execute file name with the version
-    exe_name = f"Zarif_YearCrossoverAnalytics_v1.0.0"
+    exe_name = f"Zarif_YearCrossoverAnalytics_v1.0.1"
 
     # Verify required files
     for path in (main_script, version, icon_path):
