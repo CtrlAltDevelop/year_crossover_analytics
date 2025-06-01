@@ -138,61 +138,46 @@ class Mt5Report(ReportClass):
         deals_df = df.iloc[deals_start_idx + 2: -1].reset_index(drop=True)
         deals_df.columns = df.iloc[deals_start_idx + 1].tolist()
 
-        orders_df = orders_df[['Open Time', 'Type', 'S / L', 'T / P', 'Time']].dropna(subset=['S / L', 'T / P'])
-        orders_df.rename(columns={'Type': 'Type_y', 'Open Time': 'OpenTime', 'S / L': 'SL', 'T / P': 'TP'},
-                         inplace=True)
+        orders_df = orders_df[['Order', 'Open Time', 'Type', 'S / L', 'T / P', 'Time']].dropna(
+            subset=['S / L', 'T / P'])
+        orders_df.rename(columns={'Open Time': 'OpenTime', 'S / L': 'SL', 'T / P': 'TP'}, inplace=True)
         deals_df = deals_df[deals_df['Type'].isin(self.valid_types.keys())][[
             'Deal', 'Time', 'Type', 'Direction', 'Volume', 'Price', 'Commission', 'Swap', 'Profit', 'Balance']]
-        deals_df.rename(columns={'Type': 'Type_x'}, inplace=True)
+        deals_df.set_index(keys='Deal', drop=True, inplace=True)
+        orders_df.set_index(keys='Order', drop=True, inplace=True)
 
         return result_df, orders_df, deals_df, self._extract_styles(ws, orders_start_idx), ws.merged_cells.ranges
 
     def _merge_order_and_deals_with_gui(self, orders_df: pd.DataFrame, deals_df: pd.DataFrame, progress: SignalInstance,
                                         connect: Optional[Dict[int, int]]) -> pd.DataFrame:
-        merged_data = []
-        for _, deal_row in deals_df.iterrows():
-            matching_orders = orders_df[orders_df['Time'] == deal_row['Time']]
-            merged_row = deal_row.to_dict()
-
-            valid_order = None
-            if not matching_orders.empty:
-                for _, order_row in matching_orders.iterrows():
-                    if order_row['Type_y'] in self.valid_types[deal_row['Type_x']]:
-                        valid_order = order_row
-                        break
-            if valid_order is not None:
-                merged_row.update(valid_order.to_dict())
-            merged_data.append(merged_row)
-        merged_df = pd.DataFrame(merged_data)
-        merged_df.set_index(keys='Deal', drop=True, inplace=True)
-        merged_df['Volume'] = merged_df['Volume'].dropna().apply(self._convert_to_float)
-
         if connect:
-            results_df = self.merge_with_connect_file(merged_df, progress, connect)
+            results_df = self.merge_with_connect_file(deals_df, orders_df, progress, connect)
         else:
-            results_df = self.merge_by_calculation(merged_df, progress)
+            results_df = self.merge_by_calculation(deals_df, orders_df, progress)
 
         # results_df.to_csv('merged_orders_report.csv', index=False)
         return results_df
 
-    @staticmethod
-    def merge_with_connect_file(merged_df: pd.DataFrame, progress: SignalInstance,
+    def merge_with_connect_file(self, deals_df: pd.DataFrame, orders_df: pd.DataFrame, progress: SignalInstance,
                                 connect: Dict[int, int]):
-        open_rows = merged_df.loc[np.array(list(connect.keys()))]
-        close_rows = merged_df.loc[np.array(list(connect.values()))]
+        order_rows = orders_df.loc[np.array(list(connect.keys()))]
+        open_rows = deals_df.loc[np.array(list(connect.keys()))]
+        close_rows = deals_df.loc[np.array(list(connect.values()))]
 
         results = []
         for i in range(len(open_rows)):
             row = open_rows.iloc[i]
             opp_row = close_rows.iloc[i]
+            order_row = order_rows.iloc[i]
+
             results.append({
-                'OrderTime': row['OpenTime'],
+                'OrderTime': order_row['OpenTime'],
                 'OpenTime': row['Time'],
-                'Type': row['Type_y'].lower().replace('_', ''),
+                'Type': order_row['Type'].lower().replace('_', ''),
                 'Lot': row['Volume'],
                 'OpenPrice': row['Price'],
-                'S/L': row['SL'],
-                'T/P': row['TP'],
+                'S/L': order_row['SL'],
+                'T/P': order_row['TP'],
                 'CloseTime': opp_row['Time'],
                 'ClosePrice': opp_row['Price'],
                 'Commission': row['Commission'] + opp_row['Commission'],
@@ -203,12 +188,30 @@ class Mt5Report(ReportClass):
             progress.emit(i * 100 / len(open_rows))
 
         results_df = pd.DataFrame(results)
+        results_df['Lot'] = results_df['Lot'].dropna().apply(self._convert_to_float)
         results_df[['OpenTime', 'OrderTime', 'CloseTime']] = results_df[['OpenTime', 'OrderTime', 'CloseTime']].apply(
             pd.to_datetime)
         results_df.loc[results_df['Type'].isin(['sell', 'buy']), 'OrderTime'] = np.nan
         return results_df
 
-    def merge_by_calculation(self, merged_df: pd.DataFrame, progress: SignalInstance):
+    def merge_by_calculation(self, deals_df: pd.DataFrame, orders_df: pd.DataFrame, progress: SignalInstance):
+        merged_data = []
+        for _, deal_row in deals_df.iterrows():
+            matching_orders = orders_df[orders_df['Time'] == deal_row['Time']]
+            merged_row = deal_row.to_dict()
+
+            valid_order = None
+            if not matching_orders.empty:
+                for _, order_row in matching_orders.iterrows():
+                    if order_row['Type'] in self.valid_types[deal_row['Type']]:
+                        valid_order = order_row
+                        break
+            if valid_order is not None:
+                merged_row.update(valid_order.to_dict())
+            merged_data.append(merged_row)
+        merged_df = pd.DataFrame(merged_data)
+        merged_df['Volume'] = merged_df['Volume'].dropna().apply(self._convert_to_float)
+
         in_deals = merged_df[merged_df['Direction'] == 'in'].sort_values(by='Time')
         opposite = merged_df[merged_df['Direction'] == 'out'].sort_values(by='Time')
         results = []
@@ -217,20 +220,20 @@ class Mt5Report(ReportClass):
         for index, row in in_deals.iterrows():
             current += 1
             found = False
-            matches = opposite[(opposite['Time'] >= row['Time']) & (opposite['Type_x'] != row['Type_x'])]
+            matches = opposite[(opposite['Time'] >= row['Time']) & (opposite['Type'] != row['Type'])]
             for CIdx, opp_row in matches.iterrows():
                 if CIdx in indexes:
                     continue
                 if opp_row['Volume'] == row['Volume']:
                     profit = row['Volume'] * self.contract_size * (opp_row['Price'] - row['Price']) \
-                        if row['Type_x'] == 'buy' \
+                        if row['Type'] == 'buy' \
                         else row['Volume'] * self.contract_size * (row['Price'] - opp_row['Price'])
 
                     if (opp_row['Price'] in [row['SL'], row['TP']]) or (opp_row['Profit'] == round(profit, 2)):
                         results.append({
                             'OrderTime': row['OpenTime'],
                             'OpenTime': row['Time'],
-                            'Type': row['Type_y'].lower().replace('_', ''),
+                            'Type': row['Type'].lower().replace('_', ''),
                             'Lot': row['Volume'],
                             'OpenPrice': row['Price'],
                             'S/L': row['SL'],
@@ -251,7 +254,7 @@ class Mt5Report(ReportClass):
                         results.append({
                             'OrderTime': row['OpenTime'],
                             'OpenTime': row['Time'],
-                            'Type': row['Type_y'].lower().replace('_', ''),
+                            'Type': row['Type'].lower().replace('_', ''),
                             'Lot': row['Volume'],
                             'OpenPrice': row['Price'],
                             'S/L': row['SL'],
